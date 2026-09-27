@@ -5,8 +5,7 @@ Chat with a document and get answers you can actually check. Upload a PDF, ask q
 Built as the ongoing project for a 14-week AI-native frontend internship track. See [`docs/product-brief.md`](docs/product-brief.md) for the full product brief, user flows, and system boundaries, and [`docs/system-diagram.md`](docs/system-diagram.md) for the architecture.
 
 ## Status
-
-Week 1 — product planning. No app code yet; scaffolding starts in Week 2–3.
+Week 1
 
 ## Tech stack
 
