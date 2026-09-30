@@ -29,9 +29,7 @@ GROQ_API_KEY=your_key_here
 
 
 ## Live URL
-
-_Added once the first deploy is live._
-
+https://verity-mu-one.vercel.app/
 ## Docs
 
 - [Product brief](docs/product-brief.md)
