@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "npm --prefix verity run dev",
+    "build": "npm --prefix verity run build",
+    "start": "npm --prefix verity run start",
+    "lint": "npm --prefix verity run lint"
+  }
+}

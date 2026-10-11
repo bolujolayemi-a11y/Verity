@@ -1,37 +1,42 @@
-# ----- OS files -----
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# ----- Editor / IDE -----
-.vscode/*
-!.vscode/settings.json
-.idea/
-*.swp
-*.swo
-*~
-
-# ----- Environment / secrets -----
-.env
-.env.*
-!.env.example
-
-# ----- Logs & temp files -----
-*.log
-tmp/
-temp/
-*.bak
-*.tmp
-.cache/
-
-# ----- Node (in case tooling is added later) -----
+# Dependencies
 node_modules/
+.pnp
+.pnp.*
+
+# Next.js
+.next/
+out/
+
+# Build output
 dist/
 build/
 coverage/
 
-# ----- Large exports / backups -----
-*.zip
-*.tar.gz
-*.7z
+# Local environment files and secrets
+.env
+.env.*
 
+!.env.example
+!.env.*.example
+# Deployment
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.swp
+*.swo
+*~
