@@ -21,7 +21,7 @@ user flows, and system boundaries, and
 - **Framework:** Next.js (App Router) + TypeScript
 - **AI integration:** Vercel AI SDK (`ai` + `@ai-sdk/groq`)
 - **Model provider:** Groq (`openai/gpt-oss-120b`)
-- **Deployment:** Vercel, auto-deployed on push
+- **Deployment:** Vercel, auto-deployed
 
 ## Running locally
 
