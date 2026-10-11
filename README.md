@@ -1,14 +1,7 @@
 # Verity
 
-Chat with a document and get answers you can actually check. Upload a PDF, ask
-questions, and every answer comes back with a citation pointing to the exact
-passage it came from — plus an honest "not covered in this document" state when
-it doesn't.
-
-Built as the ongoing project for a 14-week AI-native frontend internship track.
-See [`docs/product-brief.md`](docs/product-brief.md) for the full product brief,
-user flows, and system boundaries, and
-[`docs/system-diagram.md`](docs/system-diagram.md) for the architecture.
+Chat with a document and get answers you can actually check. Upload a PDF, ask questions, and every answer comes back with a citation pointing to the exact passage it came from — plus an honest "not covered in this document" state when it doesn't.
+See [`docs/product-brief.md`](docs/product-brief.md) for the full product brief, user flows, and system boundaries, and [`docs/system-diagram.md`](docs/system-diagram.md) for the architecture.
 
 ## Status
 
@@ -37,13 +30,14 @@ Root-level `dev`, `build`, `start`, and `lint` scripts forward to that app.
 
 To enable chat, create `verity/.env.local` with:
 
-```env
+```
 GROQ_API_KEY=your_key_here
 ```
 
+
 ## Live URL
 
-https://verity-mu-one.vercel.app/
+https://verity-mu-one.vercel.app/ 
 
 ## Docs
 
