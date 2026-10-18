@@ -1,4 +1,29 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+import { uploadDocument } from "./actions/upload-document";
+
 export default function DocumentPanel() {
+  const [uploadStatus, setUploadStatus] = useState<"idle" | "uploading" | "success" | "error">("idle");
+  const [uploadMessage, setUploadMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setUploadStatus("uploading");
+    setUploadMessage("");
+
+    const formData = new FormData(event.currentTarget);
+    const result = await uploadDocument(formData);
+
+    if (result.error) {
+      setUploadStatus("error");
+      setUploadMessage(result.error);
+    } else {
+      setUploadStatus("success");
+      setUploadMessage(result.message || "Document uploaded successfully.");
+    }
+  }
+
   return (
     <aside
       aria-labelledby="document-panel-title"
@@ -25,9 +50,39 @@ export default function DocumentPanel() {
         </svg>
         <h3 className="font-medium">No document selected</h3>
         <p className="mt-2 max-w-sm text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-          Uploaded documents and cited passages will appear here. Document upload
-          and processing are not available yet.
+          Uploaded documents and cited passages will appear here.
         </p>
+
+        <form className="mt-6 w-full max-w-xs" onSubmit={handleSubmit}>
+          <label className="sr-only" htmlFor="file-input">
+            Upload document
+          </label>
+          <input
+            className="block w-full rounded-lg border border-zinc-300 bg-zinc-50 px-3 py-2 text-sm text-zinc-900 file:mr-4 file:rounded-md file:border-0 file:bg-zinc-100 file:px-3 file:py-1.5 file:text-sm file:font-semibold file:text-zinc-700 hover:file:bg-zinc-200 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:file:bg-zinc-800 dark:file:text-zinc-300"
+            disabled={uploadStatus === "uploading"}
+            id="file-input"
+            name="file"
+            type="file"
+            accept=".pdf,.txt,.md"
+          />
+          <button
+            className="mt-3 w-full rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-50"
+            disabled={uploadStatus === "uploading"}
+            type="submit"
+          >
+            {uploadStatus === "uploading" ? "Uploading…" : "Upload"}
+          </button>
+        </form>
+
+        {uploadMessage && (
+          <p
+            className={`mt-3 text-sm ${
+              uploadStatus === "error" ? "text-red-600 dark:text-red-400" : "text-zinc-600 dark:text-zinc-400"
+            }`}
+          >
+            {uploadMessage}
+          </p>
+        )}
       </div>
     </aside>
   );
